@@ -37,7 +37,7 @@ namespace Serial_LEDStrip_Communication
             if (!cbox_ports.Text.Equals(""))
             {
                 serialPort1.PortName = cbox_ports.Text;
-                serialPort1.BaudRate = 2000000;
+                serialPort1.BaudRate = 115200;
                 serialPort1.Open();
 
                 btn_init.Enabled = false;
