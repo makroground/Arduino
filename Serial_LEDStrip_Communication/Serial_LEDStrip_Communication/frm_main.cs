@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Serial_LEDStrip_Communication
 {
-    public partial class Form1 : Form
+    public partial class frm_main : Form
     {
-        public Form1()
+        public frm_main()
         {
             InitializeComponent();
         }
