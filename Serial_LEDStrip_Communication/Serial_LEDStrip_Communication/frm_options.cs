@@ -14,8 +14,6 @@ namespace Serial_LEDStrip_Communication
     public partial class frm_options : Form
     {
 
-        ToolTip buttonToolTip = new ToolTip();
-
         public frm_options()
         {
             InitializeComponent();
@@ -23,6 +21,7 @@ namespace Serial_LEDStrip_Communication
 
         private void frm_options_Load(object sender, EventArgs e)
         {
+            // Neuladen der Form
             // Maximal 12 Stripes auswählbar machen
             for (int i = 1; i <= 12; i++)
             {
@@ -95,6 +94,7 @@ namespace Serial_LEDStrip_Communication
 
         private void btn_close_Click(object sender, EventArgs e)
         {
+            // Bestehende Verbindung trennen und löschen
             frm_main.serialPort1.Close();
             Properties.Settings.Default.lastCom = "";
             cbox_ports.Items.Clear();
@@ -109,6 +109,7 @@ namespace Serial_LEDStrip_Communication
 
         private void frm_options_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // Einstellungen speichern
             Properties.Settings.Default.Save();
         }
     }

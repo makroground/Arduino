@@ -23,11 +23,13 @@ namespace Serial_LEDStrip_Communication
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Neuladen der Form
             loadFormFill();
         }
 
         private void loadFormFill()
         {
+            // Anzahl der eingestellten Stripes laden
             cbox_numStripes.Items.Clear();
             for (int i = 0; i < Properties.Settings.Default.numStripes; i++)
             {
@@ -35,6 +37,7 @@ namespace Serial_LEDStrip_Communication
                 cbox_numStripes.Items.Add("Strip " + numStrip);
             }
 
+            // Status der Verbindung zum µController feststellen
             if (Properties.Settings.Default.COMsaved)
             {
                 if (serialPort1.IsOpen)
@@ -73,17 +76,21 @@ namespace Serial_LEDStrip_Communication
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
+            // Einstellungen anzeigen
             Form frm_opt = new frm_options();
             frm_opt.ShowDialog();
 
+            // Form Main neuladen, um Veränderungen der Einstellungen anzuwenden
             loadFormFill();
         }
 
         private void btn_setAll_Click(object sender, EventArgs e)
         {
+            // Senden der Farbe an den ausgewählten Stripe
             if (!cbox_numStripes.Text.Equals(""))
             {
                 int stripNum = cbox_numStripes.SelectedIndex + 1;
+                // Korrektur der Stellenanzahl des Indexes (kleiner 9 oder kleiner 99)
                 String indexID = "";
                 if (stripNum <= 9)
                 {
@@ -95,6 +102,7 @@ namespace Serial_LEDStrip_Communication
                 }
                 try
                 {
+                    // Senden des kompletten Wertes
                     serialPort1.Write(indexID + txt_lecColor.Text + '\n');
                 } catch
                 {
@@ -110,6 +118,7 @@ namespace Serial_LEDStrip_Communication
 
         private void frm_main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Einstellungen speichern
             Properties.Settings.Default.Save();
         }
     }
