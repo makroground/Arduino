@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
-            this.btn_send = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.gbox_control = new System.Windows.Forms.GroupBox();
             this.lbl_statusCon = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.btn_setAll = new System.Windows.Forms.Button();
+            this.btn_setCur = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_lecColor = new System.Windows.Forms.TextBox();
             this.cbox_numStripes = new System.Windows.Forms.ComboBox();
+            this.tray_icon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cms_tray = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.öffneKontrollcenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_setAll = new System.Windows.Forms.Button();
+            this.wait_endOfBoot = new System.Windows.Forms.Timer(this.components);
             this.gbox_control.SuspendLayout();
+            this.cms_tray.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_send
-            // 
-            this.btn_send.Location = new System.Drawing.Point(0, 0);
-            this.btn_send.Name = "btn_send";
-            this.btn_send.Size = new System.Drawing.Size(75, 23);
-            this.btn_send.TabIndex = 12;
             // 
             // label2
             // 
@@ -61,10 +61,11 @@
             // 
             // gbox_control
             // 
+            this.gbox_control.Controls.Add(this.btn_setAll);
             this.gbox_control.Controls.Add(this.lbl_statusCon);
             this.gbox_control.Controls.Add(this.label1);
             this.gbox_control.Controls.Add(this.btn_settings);
-            this.gbox_control.Controls.Add(this.btn_setAll);
+            this.gbox_control.Controls.Add(this.btn_setCur);
             this.gbox_control.Controls.Add(this.label3);
             this.gbox_control.Controls.Add(this.txt_lecColor);
             this.gbox_control.Controls.Add(this.cbox_numStripes);
@@ -112,19 +113,19 @@
             this.btn_settings.UseVisualStyleBackColor = false;
             this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
             // 
-            // btn_setAll
+            // btn_setCur
             // 
-            this.btn_setAll.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_setAll.FlatAppearance.BorderSize = 0;
-            this.btn_setAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_setAll.Location = new System.Drawing.Point(620, 324);
-            this.btn_setAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_setAll.Name = "btn_setAll";
-            this.btn_setAll.Size = new System.Drawing.Size(158, 45);
-            this.btn_setAll.TabIndex = 12;
-            this.btn_setAll.Text = "Übernehmen";
-            this.btn_setAll.UseVisualStyleBackColor = false;
-            this.btn_setAll.Click += new System.EventHandler(this.btn_setAll_Click);
+            this.btn_setCur.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_setCur.FlatAppearance.BorderSize = 0;
+            this.btn_setCur.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_setCur.Location = new System.Drawing.Point(620, 324);
+            this.btn_setCur.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_setCur.Name = "btn_setCur";
+            this.btn_setCur.Size = new System.Drawing.Size(158, 45);
+            this.btn_setCur.TabIndex = 12;
+            this.btn_setCur.Text = "Übernehmen";
+            this.btn_setCur.UseVisualStyleBackColor = false;
+            this.btn_setCur.Click += new System.EventHandler(this.btn_setCur_Click);
             // 
             // label3
             // 
@@ -160,6 +161,59 @@
             this.cbox_numStripes.Name = "cbox_numStripes";
             this.cbox_numStripes.Size = new System.Drawing.Size(168, 40);
             this.cbox_numStripes.TabIndex = 11;
+            this.cbox_numStripes.SelectedIndexChanged += new System.EventHandler(this.cbox_numStripes_SelectedIndexChanged);
+            // 
+            // tray_icon
+            // 
+            this.tray_icon.BalloonTipText = "Das Programm läuft noch...";
+            this.tray_icon.BalloonTipTitle = "LED Control Center";
+            this.tray_icon.ContextMenuStrip = this.cms_tray;
+            this.tray_icon.Icon = ((System.Drawing.Icon)(resources.GetObject("tray_icon.Icon")));
+            this.tray_icon.Text = "LED Stripes Control";
+            this.tray_icon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_icon_MouseDoubleClick);
+            // 
+            // cms_tray
+            // 
+            this.cms_tray.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.cms_tray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.öffneKontrollcenterToolStripMenuItem,
+            this.beendenToolStripMenuItem});
+            this.cms_tray.Name = "cms_tray";
+            this.cms_tray.Size = new System.Drawing.Size(258, 64);
+            // 
+            // öffneKontrollcenterToolStripMenuItem
+            // 
+            this.öffneKontrollcenterToolStripMenuItem.Name = "öffneKontrollcenterToolStripMenuItem";
+            this.öffneKontrollcenterToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.öffneKontrollcenterToolStripMenuItem.Text = "Öffne Kontrollcenter";
+            this.öffneKontrollcenterToolStripMenuItem.Click += new System.EventHandler(this.öffneKontrollcenterToolStripMenuItem_Click);
+            // 
+            // beendenToolStripMenuItem
+            // 
+            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.beendenToolStripMenuItem.Text = "Beenden";
+            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
+            // 
+            // btn_setAll
+            // 
+            this.btn_setAll.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_setAll.Enabled = false;
+            this.btn_setAll.FlatAppearance.BorderSize = 0;
+            this.btn_setAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_setAll.Location = new System.Drawing.Point(397, 324);
+            this.btn_setAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_setAll.Name = "btn_setAll";
+            this.btn_setAll.Size = new System.Drawing.Size(215, 45);
+            this.btn_setAll.TabIndex = 17;
+            this.btn_setAll.Text = "Alle Farben senden";
+            this.btn_setAll.UseVisualStyleBackColor = false;
+            this.btn_setAll.Click += new System.EventHandler(this.btn_setAll_Click);
+            // 
+            // wait_endOfBoot
+            // 
+            this.wait_endOfBoot.Interval = 1000;
+            this.wait_endOfBoot.Tick += new System.EventHandler(this.wait_endOfBoot_Tick);
             // 
             // frm_main
             // 
@@ -168,29 +222,37 @@
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(822, 415);
             this.Controls.Add(this.gbox_control);
-            this.Controls.Add(this.btn_send);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "frm_main";
             this.Text = "LED Stripes Control";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_main_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.frm_main_Resize);
             this.gbox_control.ResumeLayout(false);
             this.gbox_control.PerformLayout();
+            this.cms_tray.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_send;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbox_control;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_lecColor;
         private System.Windows.Forms.ComboBox cbox_numStripes;
         private System.Windows.Forms.Button btn_settings;
-        private System.Windows.Forms.Button btn_setAll;
+        private System.Windows.Forms.Button btn_setCur;
         private System.Windows.Forms.Label lbl_statusCon;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NotifyIcon tray_icon;
+        private System.Windows.Forms.ContextMenuStrip cms_tray;
+        private System.Windows.Forms.ToolStripMenuItem öffneKontrollcenterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
+        private System.Windows.Forms.Button btn_setAll;
+        private System.Windows.Forms.Timer wait_endOfBoot;
     }
 }
 

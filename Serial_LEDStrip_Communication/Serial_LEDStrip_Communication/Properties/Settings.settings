@@ -5,8 +5,8 @@
     <Setting Name="numStripes" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="maxLEDCount" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="loadOnBoot" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="lastCom" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -18,40 +18,40 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ledColor01" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor02" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor03" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor04" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor05" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor06" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor07" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor08" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor09" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor10" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor11" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
     <Setting Name="ledColor12" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">255255255</Value>
     </Setting>
   </Settings>
 </SettingsFile>

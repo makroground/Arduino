@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +15,8 @@ namespace Serial_LEDStrip_Communication
 {
     public partial class frm_options : Form
     {
+
+        private bool ckb_startupChecked = false;
 
         public frm_options()
         {
@@ -50,6 +54,26 @@ namespace Serial_LEDStrip_Communication
                 btn_init.Enabled = true;
                 btn_close.Enabled = false;
             }
+
+            string keyEntry;
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                keyEntry = (String) key.GetValue("LED Control Center");
+            }
+            if (keyEntry != null)
+            {
+                ckb_startupChecked = true;
+                ckb_startup.Checked = true;
+                
+            }
+            else
+            {
+                ckb_startupChecked = false;
+                ckb_startup.Checked = false;
+            }
+
+            ckb_startupChecked = ckb_startup.Checked;
+            ckb_reloadColors.Checked = Properties.Settings.Default.loadOnBoot;
         }
 
         private void cbox_numStripes_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,6 +135,68 @@ namespace Serial_LEDStrip_Communication
         {
             // Einstellungen speichern
             Properties.Settings.Default.Save();
+        }
+
+        private void ckb_startup_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsUserAdministrator())
+            {
+                if (ckb_startup.Checked == true)
+                {
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                    {
+                        key.SetValue("LED Control Center", "\"" + AppDomain.CurrentDomain.BaseDirectory + @"LEDCC StartupHelper.exe" + "\""); //System.Reflection.Assembly.GetEntryAssembly().Location
+                    }
+                }
+                else
+                {
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                    {
+                        key.DeleteValue("LED Control Center", false);
+                    }
+                }
+            }
+            else
+            {
+                if (ckb_startup.Checked != ckb_startupChecked)
+                {
+                    MessageBox.Show("Um diese Einstellung anzupassen, muss das Programm als Administrator gestartet werden", "Keine Administratorrechte", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ckb_startup.Checked = ckb_startupChecked;
+                }
+                
+                
+            }
+
+            
+        }
+
+        public static bool IsUserAdministrator()
+        {
+            // Prüfe, ob des Programm mit Adminrechten läuft
+            bool isAdmin;
+            try
+            {
+                // Lies die Rolle des Benutzers aus
+                WindowsIdentity user = WindowsIdentity.GetCurrent();
+                WindowsPrincipal principal = new WindowsPrincipal(user);
+                isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                isAdmin = false;
+            }
+            catch (Exception ex)
+            {
+                isAdmin = false;
+            }
+            return isAdmin;
+        }
+
+        private void ckb_reloadColors_CheckedChanged(object sender, EventArgs e)
+        {
+
+            Properties.Settings.Default.loadOnBoot = ckb_reloadColors.Checked;
         }
     }
 }

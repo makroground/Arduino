@@ -30,6 +30,8 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.gbox_stripes = new System.Windows.Forms.GroupBox();
+            this.ckb_reloadColors = new System.Windows.Forms.CheckBox();
+            this.ckb_startup = new System.Windows.Forms.CheckBox();
             this.lbl_comport = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_init = new System.Windows.Forms.Button();
@@ -58,6 +60,8 @@
             // 
             // gbox_stripes
             // 
+            this.gbox_stripes.Controls.Add(this.ckb_reloadColors);
+            this.gbox_stripes.Controls.Add(this.ckb_startup);
             this.gbox_stripes.Controls.Add(this.lbl_comport);
             this.gbox_stripes.Controls.Add(this.btn_close);
             this.gbox_stripes.Controls.Add(this.btn_init);
@@ -75,16 +79,40 @@
             this.gbox_stripes.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.gbox_stripes.Location = new System.Drawing.Point(12, 12);
             this.gbox_stripes.Name = "gbox_stripes";
-            this.gbox_stripes.Size = new System.Drawing.Size(713, 363);
+            this.gbox_stripes.Size = new System.Drawing.Size(939, 549);
             this.gbox_stripes.TabIndex = 2;
             this.gbox_stripes.TabStop = false;
             this.gbox_stripes.Text = "Einstellungen";
+            // 
+            // ckb_reloadColors
+            // 
+            this.ckb_reloadColors.AutoSize = true;
+            this.ckb_reloadColors.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_reloadColors.Location = new System.Drawing.Point(36, 369);
+            this.ckb_reloadColors.Name = "ckb_reloadColors";
+            this.ckb_reloadColors.Size = new System.Drawing.Size(589, 36);
+            this.ckb_reloadColors.TabIndex = 16;
+            this.ckb_reloadColors.Text = "Gespeicherte Farben beim Programmstart laden";
+            this.ckb_reloadColors.UseVisualStyleBackColor = true;
+            this.ckb_reloadColors.CheckedChanged += new System.EventHandler(this.ckb_reloadColors_CheckedChanged);
+            // 
+            // ckb_startup
+            // 
+            this.ckb_startup.AutoSize = true;
+            this.ckb_startup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_startup.Location = new System.Drawing.Point(36, 297);
+            this.ckb_startup.Name = "ckb_startup";
+            this.ckb_startup.Size = new System.Drawing.Size(531, 36);
+            this.ckb_startup.TabIndex = 15;
+            this.ckb_startup.Text = "Das Programm mit Windows starten (Tray)";
+            this.ckb_startup.UseVisualStyleBackColor = true;
+            this.ckb_startup.CheckedChanged += new System.EventHandler(this.ckb_startup_CheckedChanged);
             // 
             // lbl_comport
             // 
             this.lbl_comport.AutoSize = true;
             this.lbl_comport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_comport.Location = new System.Drawing.Point(205, 287);
+            this.lbl_comport.Location = new System.Drawing.Point(253, 469);
             this.lbl_comport.Name = "lbl_comport";
             this.lbl_comport.Size = new System.Drawing.Size(133, 32);
             this.lbl_comport.TabIndex = 14;
@@ -95,7 +123,7 @@
             // 
             this.btn_close.Enabled = false;
             this.btn_close.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.Location = new System.Drawing.Point(565, 282);
+            this.btn_close.Location = new System.Drawing.Point(765, 464);
             this.btn_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(112, 45);
@@ -107,7 +135,7 @@
             // btn_init
             // 
             this.btn_init.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_init.Location = new System.Drawing.Point(430, 282);
+            this.btn_init.Location = new System.Drawing.Point(630, 464);
             this.btn_init.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_init.Name = "btn_init";
             this.btn_init.Size = new System.Drawing.Size(127, 45);
@@ -120,12 +148,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(59, 287);
+            this.label7.Location = new System.Drawing.Point(59, 469);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 32);
+            this.label7.Size = new System.Drawing.Size(134, 32);
             this.label7.TabIndex = 11;
-            this.label7.Text = "COM Port";
+            this.label7.Text = "COM Port:";
             // 
             // cbox_ports
             // 
@@ -135,7 +163,7 @@
             this.cbox_ports.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_ports.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.cbox_ports.FormattingEnabled = true;
-            this.cbox_ports.Location = new System.Drawing.Point(194, 284);
+            this.cbox_ports.Location = new System.Drawing.Point(242, 466);
             this.cbox_ports.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbox_ports.Name = "cbox_ports";
             this.cbox_ports.Size = new System.Drawing.Size(163, 40);
@@ -160,7 +188,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(463, 204);
+            this.label6.Location = new System.Drawing.Point(463, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 21);
             this.label6.TabIndex = 8;
@@ -170,7 +198,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(530, 204);
+            this.label5.Location = new System.Drawing.Point(530, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 21);
             this.label5.TabIndex = 7;
@@ -180,7 +208,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(626, 173);
+            this.label4.Location = new System.Drawing.Point(626, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 21);
             this.label4.TabIndex = 6;
@@ -188,7 +216,7 @@
             // 
             // tbar_brightness
             // 
-            this.tbar_brightness.Location = new System.Drawing.Point(385, 169);
+            this.tbar_brightness.Location = new System.Drawing.Point(385, 195);
             this.tbar_brightness.Maximum = 100;
             this.tbar_brightness.Minimum = 20;
             this.tbar_brightness.Name = "tbar_brightness";
@@ -201,7 +229,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 169);
+            this.label1.Location = new System.Drawing.Point(59, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 32);
             this.label1.TabIndex = 3;
@@ -211,7 +239,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(344, 173);
+            this.label3.Location = new System.Drawing.Point(344, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 21);
             this.label3.TabIndex = 5;
@@ -222,10 +250,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(737, 387);
+            this.ClientSize = new System.Drawing.Size(963, 573);
             this.Controls.Add(this.gbox_stripes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_options";
-            this.Text = "Options";
+            this.ShowIcon = false;
+            this.Text = "Settings";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_options_FormClosed);
             this.Load += new System.EventHandler(this.frm_options_Load);
             this.gbox_stripes.ResumeLayout(false);
@@ -251,5 +281,7 @@
         internal System.Windows.Forms.Label label7;
         internal System.Windows.Forms.ComboBox cbox_ports;
         private System.Windows.Forms.Label lbl_comport;
+        private System.Windows.Forms.CheckBox ckb_reloadColors;
+        private System.Windows.Forms.CheckBox ckb_startup;
     }
 }

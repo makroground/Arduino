@@ -37,13 +37,13 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int maxLEDCount {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool loadOnBoot {
             get {
-                return ((int)(this["maxLEDCount"]));
+                return ((bool)(this["loadOnBoot"]));
             }
             set {
-                this["maxLEDCount"] = value;
+                this["loadOnBoot"] = value;
             }
         }
         
@@ -85,7 +85,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor01 {
             get {
                 return ((string)(this["ledColor01"]));
@@ -97,7 +97,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor02 {
             get {
                 return ((string)(this["ledColor02"]));
@@ -109,7 +109,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor03 {
             get {
                 return ((string)(this["ledColor03"]));
@@ -121,7 +121,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor04 {
             get {
                 return ((string)(this["ledColor04"]));
@@ -133,7 +133,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor05 {
             get {
                 return ((string)(this["ledColor05"]));
@@ -145,7 +145,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor06 {
             get {
                 return ((string)(this["ledColor06"]));
@@ -157,7 +157,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor07 {
             get {
                 return ((string)(this["ledColor07"]));
@@ -169,7 +169,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor08 {
             get {
                 return ((string)(this["ledColor08"]));
@@ -181,7 +181,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor09 {
             get {
                 return ((string)(this["ledColor09"]));
@@ -193,7 +193,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor10 {
             get {
                 return ((string)(this["ledColor10"]));
@@ -205,7 +205,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor11 {
             get {
                 return ((string)(this["ledColor11"]));
@@ -217,7 +217,7 @@ namespace Serial_LEDStrip_Communication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255255255")]
         public string ledColor12 {
             get {
                 return ((string)(this["ledColor12"]));
