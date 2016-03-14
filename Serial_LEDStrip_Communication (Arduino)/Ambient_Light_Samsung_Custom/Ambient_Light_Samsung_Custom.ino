@@ -7,11 +7,29 @@
 #define PIN_STRIP2 3
 #define PIN_STRIP3 4
 #define PIN_STRIP4 5
+#define PIN_STRIP5 6
+#define PIN_STRIP6 7
+#define PIN_STRIP7 8
+#define PIN_STRIP8 9
+#define PIN_STRIP9 10
+#define PIN_STRIP10 11
+#define PIN_STRIP11 12
+#define PIN_STRIP12 13
 
-Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(11, PIN_STRIP1, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(18, PIN_STRIP2, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(11, PIN_STRIP3, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel strip4 = Adafruit_NeoPixel(14, PIN_STRIP4, NEO_GRB + NEO_KHZ800);
+#define LED_maxCount 150 // 5 Strips a 30 LED's 
+
+Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP1, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP2, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP3, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip4 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP4, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip5 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP5, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip6 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP6, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip7 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP7, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip8 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP8, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip9 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP9, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip10 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP10, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip11 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP11, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip12 = Adafruit_NeoPixel(LED_maxCount, PIN_STRIP12, NEO_GRB + NEO_KHZ800);
 
 // LCD Adresse 0x27 für 16*2 Display setzen
 //                    addr, en,rw,rs,d4,d5,d6,d7,bl,blpol
@@ -31,10 +49,26 @@ void setup() {
   strip2.begin();
   strip3.begin();
   strip4.begin();
+  strip5.begin();
+  strip6.begin();
+  strip7.begin();
+  strip8.begin();
+  strip9.begin();
+  strip10.begin();
+  strip11.begin();
+  strip12.begin();
   strip1.show();
   strip2.show();
   strip3.show();
   strip4.show();
+  strip5.show();
+  strip6.show();
+  strip7.show();
+  strip8.show();
+  strip9.show();
+  strip10.show();
+  strip11.show();
+  strip12.show();
 }
 
 void loop() {
@@ -99,6 +133,62 @@ void loop() {
           }
           strip4.show();
           break;
+        case 5:
+          for (uint16_t i = 0; i < strip5.numPixels(); i++)
+          {
+            strip5.setPixelColor(i, strip5.Color(redColor, greenColor, blueColor));
+          }
+          strip5.show();
+          break;
+        case 6:
+          for (uint16_t i = 0; i < strip6.numPixels(); i++)
+          {
+            strip6.setPixelColor(i, strip6.Color(redColor, greenColor, blueColor));
+          }
+          strip6.show();
+          break;
+        case 7:
+          for (uint16_t i = 0; i < strip7.numPixels(); i++)
+          {
+            strip7.setPixelColor(i, strip7.Color(redColor, greenColor, blueColor));
+          }
+          strip7.show();
+          break;
+        case 8:
+          for (uint16_t i = 0; i < strip8.numPixels(); i++)
+          {
+            strip8.setPixelColor(i, strip8.Color(redColor, greenColor, blueColor));
+          }
+          strip8.show();
+          break;
+        case 9:
+          for (uint16_t i = 0; i < strip9.numPixels(); i++)
+          {
+            strip9.setPixelColor(i, strip9.Color(redColor, greenColor, blueColor));
+          }
+          strip9.show();
+          break;
+        case 10:
+          for (uint16_t i = 0; i < strip10.numPixels(); i++)
+          {
+            strip10.setPixelColor(i, strip10.Color(redColor, greenColor, blueColor));
+          }
+          strip10.show();
+          break;
+        case 11:
+          for (uint16_t i = 0; i < strip11.numPixels(); i++)
+          {
+            strip11.setPixelColor(i, strip11.Color(redColor, greenColor, blueColor));
+          }
+          strip11.show();
+          break;
+        case 12:
+          for (uint16_t i = 0; i < strip12.numPixels(); i++)
+          {
+            strip12.setPixelColor(i, strip12.Color(redColor, greenColor, blueColor));
+          }
+          strip12.show();
+          break;
         default:
           for (uint16_t i = 0; i < strip1.numPixels(); i++)
           {
@@ -116,11 +206,51 @@ void loop() {
           {
             strip4.setPixelColor(i, strip4.Color(63, 63, 63));
           }
+          for (uint16_t i = 0; i < strip5.numPixels(); i++)
+          {
+            strip5.setPixelColor(i, strip5.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip6.numPixels(); i++)
+          {
+            strip6.setPixelColor(i, strip6.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip7.numPixels(); i++)
+          {
+            strip7.setPixelColor(i, strip7.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip8.numPixels(); i++)
+          {
+            strip8.setPixelColor(i, strip8.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip9.numPixels(); i++)
+          {
+            strip9.setPixelColor(i, strip9.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip10.numPixels(); i++)
+          {
+            strip10.setPixelColor(i, strip10.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip11.numPixels(); i++)
+          {
+            strip11.setPixelColor(i, strip11.Color(63, 63, 63));
+          }
+          for (uint16_t i = 0; i < strip12.numPixels(); i++)
+          {
+            strip12.setPixelColor(i, strip12.Color(63, 63, 63));
+          }
           
           strip1.show();
           strip2.show();
           strip3.show();
           strip4.show();
+          strip5.show();
+          strip6.show();
+          strip7.show();
+          strip8.show();
+          strip9.show();
+          strip10.show();
+          strip11.show();
+          strip12.show();
           break;
       }
       
