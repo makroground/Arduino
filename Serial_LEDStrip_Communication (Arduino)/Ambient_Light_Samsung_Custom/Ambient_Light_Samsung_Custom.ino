@@ -1,7 +1,5 @@
-#include <Adafruit_NeoPixel.h>
-#include <LiquidCrystal.h>
 #include <LiquidCrystal_I2C.h>
-#include <Wire.h>  
+#include <Adafruit_NeoPixel.h>
 
 #define PIN_STRIP1 2
 #define PIN_STRIP2 3
@@ -190,6 +188,7 @@ void loop() {
           strip12.show();
           break;
         default:
+          Serial.println("Ungueltiger Index: " + idx);
           for (uint16_t i = 0; i < strip1.numPixels(); i++)
           {
             strip1.setPixelColor(i, strip1.Color(63, 63, 63));

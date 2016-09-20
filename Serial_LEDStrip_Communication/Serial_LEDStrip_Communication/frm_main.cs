@@ -52,6 +52,8 @@ namespace Serial_LEDStrip_Communication
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            //colorDialog1.ShowDialog();
             // Neuladen der Form
             loadFormFill();
 
@@ -148,7 +150,7 @@ namespace Serial_LEDStrip_Communication
                     //Speichern der Farbe für den Stripe
                     int indx = cbox_numStripes.SelectedIndex;
                     string nameStp;
-                    if (indx < 9)
+                    if (indx <= 9)
                     {
                         nameStp = "ledColor0" + (cbox_numStripes.SelectedIndex + 1).ToString();
                     }
@@ -292,7 +294,7 @@ namespace Serial_LEDStrip_Communication
                 {
                     string nameStp;
                     string color;
-                    if (i < 9)
+                    if (i <= 9)
                     {
                         nameStp = "ledColor0" + i.ToString();
                     }

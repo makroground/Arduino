@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.label2 = new System.Windows.Forms.Label();
             this.gbox_control = new System.Windows.Forms.GroupBox();
+            this.btn_setAll = new System.Windows.Forms.Button();
             this.lbl_statusCon = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_settings = new System.Windows.Forms.Button();
@@ -43,8 +44,8 @@
             this.cms_tray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.öffneKontrollcenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_setAll = new System.Windows.Forms.Button();
             this.wait_endOfBoot = new System.Windows.Forms.Timer(this.components);
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.gbox_control.SuspendLayout();
             this.cms_tray.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +79,21 @@
             this.gbox_control.TabIndex = 11;
             this.gbox_control.TabStop = false;
             this.gbox_control.Text = "Kontrollcenter";
+            // 
+            // btn_setAll
+            // 
+            this.btn_setAll.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_setAll.Enabled = false;
+            this.btn_setAll.FlatAppearance.BorderSize = 0;
+            this.btn_setAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_setAll.Location = new System.Drawing.Point(397, 324);
+            this.btn_setAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_setAll.Name = "btn_setAll";
+            this.btn_setAll.Size = new System.Drawing.Size(215, 45);
+            this.btn_setAll.TabIndex = 17;
+            this.btn_setAll.Text = "Alle Farben senden";
+            this.btn_setAll.UseVisualStyleBackColor = false;
+            this.btn_setAll.Click += new System.EventHandler(this.btn_setAll_Click);
             // 
             // lbl_statusCon
             // 
@@ -179,36 +195,21 @@
             this.öffneKontrollcenterToolStripMenuItem,
             this.beendenToolStripMenuItem});
             this.cms_tray.Name = "cms_tray";
-            this.cms_tray.Size = new System.Drawing.Size(258, 64);
+            this.cms_tray.Size = new System.Drawing.Size(245, 64);
             // 
             // öffneKontrollcenterToolStripMenuItem
             // 
             this.öffneKontrollcenterToolStripMenuItem.Name = "öffneKontrollcenterToolStripMenuItem";
-            this.öffneKontrollcenterToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.öffneKontrollcenterToolStripMenuItem.Size = new System.Drawing.Size(244, 30);
             this.öffneKontrollcenterToolStripMenuItem.Text = "Öffne Kontrollcenter";
             this.öffneKontrollcenterToolStripMenuItem.Click += new System.EventHandler(this.öffneKontrollcenterToolStripMenuItem_Click);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(244, 30);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
-            // 
-            // btn_setAll
-            // 
-            this.btn_setAll.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_setAll.Enabled = false;
-            this.btn_setAll.FlatAppearance.BorderSize = 0;
-            this.btn_setAll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_setAll.Location = new System.Drawing.Point(397, 324);
-            this.btn_setAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_setAll.Name = "btn_setAll";
-            this.btn_setAll.Size = new System.Drawing.Size(215, 45);
-            this.btn_setAll.TabIndex = 17;
-            this.btn_setAll.Text = "Alle Farben senden";
-            this.btn_setAll.UseVisualStyleBackColor = false;
-            this.btn_setAll.Click += new System.EventHandler(this.btn_setAll_Click);
             // 
             // wait_endOfBoot
             // 
@@ -253,6 +254,7 @@
         private System.Windows.Forms.ToolStripMenuItem beendenToolStripMenuItem;
         private System.Windows.Forms.Button btn_setAll;
         private System.Windows.Forms.Timer wait_endOfBoot;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
