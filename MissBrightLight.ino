@@ -27,14 +27,10 @@
 
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
-//char user[] = ".....................";              // Benutzername
-//char password[] = ".....................";        // Benutzerpasswort
-
 EthernetClient client;
-//MySQL_Connection conn((Client *)&client);
 char host[]    = "85.214.232.234";              // Domain oder IP-Adresse des Servers (fuer die URL)
 char url[]     = "/arduino/more/SaveWertToMySQL.php";    // Pfad zur PHP-Datei
-char passkey[]     = "FZJV23zjtr78kUHJBV324";   // Kennwort aus PHP-Datei
+char passkey[]     = "-----------------";   // Kennwort aus PHP-Datei
 String result = "";                             // Variable fuer Rueckgabe des Servers
 byte server[]  = { 85, 214, 232, 234 };         // IP-Adresse des Servers (zum Verbindungsaufbau)
 
@@ -57,15 +53,6 @@ void setup()
   Serial.begin(115200);
   //while (!Serial); // wait for serial port to connect
   Ethernet.begin(mac_addr);
-  /*Serial.println("Connecting...");
-  if (conn.connect(server_addr, 3306, user, password))
-  {
-    delay(1000);
-  }
-  else
-  {
-    Serial.println("Connection failed.");
-  }*/
 
   // Initialisieren des Lux Sensors
   if (!lux_sens.begin())
