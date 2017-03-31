@@ -105,6 +105,10 @@ void loop() {
 
   if (IGNoff == true) {
     unsigned long currentMillis2 = millis();
+
+    if (previousMillis2 == 0) {
+      previousMillis2 = currentMillis2;
+    }
     
     // Wenn nach 60 Sek immernoch LOW, dann Spannung von BATT ausschalten
     if (currentMillis2 - previousMillis2 >= interval2) {
